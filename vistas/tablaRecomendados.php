@@ -2,6 +2,7 @@
     <?php  
    require_once '../controladores/CoordinadorVogoo.php';
 
+   
     $nUsuario = $_SESSION['user'];
     $vogoo = new CoordinadorVogoo();
     $recomendados = $vogoo->verRecomendados($nUsuario);
@@ -31,14 +32,13 @@
   </thead>
   <tbody>  
 <?php
-    foreach ($recomendados as $registro){
-            $imagen = $registro['url_imagen'];
-            if($registro['usuario_username'] == $nUsuario)
-              continue;
-            ?>
+foreach ($recomendados as $registro){
+        $imagen = $registro['url_imagen'];
+        if($registro['usuario_username'] == $nUsuario)
+          continue; # En caso de que me recomiende un producto mio, se lo salta
+        ?>
      <tr>
-         <td><?php echo $registro['usuario_username'];?>
-         </td> 
+         <td><?php echo $registro['usuario_username'];?></td> 
          <td><?php echo $registro['nombre'];?></td> 
          <form action="../controladores/CoordinadorCarrito.php" method="GET">
          <input type="hidden" value="<?php echo $registro['nombre']?>" name="nameProduct">
@@ -55,7 +55,7 @@
          <td><?php echo '<img class="responsive-img circle" src="'.$imagen.'" width="100" height="130" alt="Imagen">';?></td>
          <td><?php echo $registro['estado'];?></td> 
          <td> <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Agregar al Carrito"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-action-add-shopping-cart"></i>
-</button></td>
+              </button></td>
 
           </form>
         <td>
@@ -73,14 +73,9 @@
         elseif (!(in_array($registro['usuario_username'], $siguiendo))  && $_SESSION['user'] != $registro['usuario_username']) {
           echo '<form action="../scripts/seguirUsuario.php?usuarioSeguidor='.$_SESSION['user'].'&usuarioSeguido='.$registro['usuario_username'].'" method="POST">
           <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Seguir usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-social-person-add"></i> </button></td>
-          </form>';
+          </form></tr>';
         }
-        ?>
-
-
-        
-         <!-- <td><a href="" class="grey-text text-darken-3 tooltipped" name="down" id="down" data-tooltip="Remover de la lista"><i class="mdi-action-highlight-remove small"></i></a></td> --> <?php
-      ?> </tr>
-      <?php }} ?> 
+      }
+    } ?> 
   </tbody>
 </table> 

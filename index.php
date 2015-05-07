@@ -115,6 +115,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Presentación del index pagina de inicio-->
 <!-- BANNER -->
   <div id="index-banner" class="parallax-container">
