@@ -110,7 +110,8 @@ if(isset($_SESSION['exitoCrearCategoria'])){
   <?php }else{ header('Location: ../index.php');}?>    
   <?php #aca iba a $perfiles ?>
  <!--  #================================================================== -->
-  <div class="container">   
+  <div class="container ">   
+    <?php include("tablaRecomendados.php"); ?>
     <br>
     <div class="row">
       <h4><i class="mdi-maps-layers left" class="modal-trigger"></i>Productos a la venta</h4>
@@ -131,7 +132,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
       <thead>
         <tr>
           <th><strong>Vendedor</strong></th>
-          <th>Nombre</th>
+          <th width="50">Nombre</th>
           <th>Cantidad</th>
           <th>Categoria</th>
           <th>Valor Unitario</th>
@@ -162,7 +163,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
                        echo $cat['nombre'];?>
              </td>
              <td><?php echo $registro['valor_unitario'];?></td>
-             <td><?php echo '<img class="responsive-img circle" src="'.$imagen.'" width="130" height="130" alt="Imagen">';?></td>
+             <td><?php echo '<img class="responsive-img circle" src="'.$imagen.'" width="100" height="130" alt="Imagen">';?></td>
              <td><?php echo $registro['estado'];?></td> 
              <td> <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Agregar al Carrito"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-action-add-shopping-cart"></i>
   </button></td>

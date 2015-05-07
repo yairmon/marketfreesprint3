@@ -69,9 +69,9 @@ EOF;
 		return $ret;
 	}
 
-	function member_get_recommended_items($member_id,$cat = 1,$filter = false, $k = 1000000)
+	function member_get_recommended_items($vogoo, $member_id,$cat = 1,$filter = false, $k = 1000000)
 	{
-		global $vogoo;
+		#global $vogoo;
 		if (!isset($member_id) || !is_numeric($member_id))
 		{
 			return false;
@@ -582,7 +582,7 @@ EOF;
 }
 
 $vogoo_items = new vogoo_items_class;
-$vogoo_items->member_get_recommended_items(19);
+$vogoo_items->member_get_recommended_items($vogoo,19);
 
 } // ... defined
 ?>

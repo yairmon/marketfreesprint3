@@ -149,4 +149,6 @@ EOF;
 	}
 	$vogoo->db->sql_freeresult($result);
 }
+
+	header('Location: ../vistas/estadoCompras.php?modal=modalRecibido');
 ?>

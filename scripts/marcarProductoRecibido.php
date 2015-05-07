@@ -18,7 +18,6 @@
 	$idfact = $_GET['factura'];
 	$fact = new CoordinadorVenta();
 	$fact->cambiarEstado($idfact, "Recibido"); //el comprador recibe el pedido
-	header('Location: ../vistas/estadoCompras.php?modal=modalRecibido');
 
 	$notificaAVendedor = new CoordinadorNotificacionComprador();
 	$nVendedor = $_GET['vendedor'];
@@ -28,5 +27,8 @@
 	$nUsuario = $_SESSION['user'];
 	$vogoo = new CoordinadorVogoo();
 	$vogoo->agregarProducto($nUsuario,$idfact);
+
+	echo exec();
+	header('Location: ../vogoo/cronlinks.php');
 
  ?>

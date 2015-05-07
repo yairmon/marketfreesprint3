@@ -39,7 +39,7 @@ Class CoordinadorVogoo
 			$productosID = $key['id'];
 			$categoriaID = $key['categoria_id'];
 
-			include("../vogoo/vogoo.php");
+			require_once ("../vogoo/vogoo.php");
 			$vogoo->set_rating($idUsuario,$productosID,1.0,$categoriaID);
 
 		}
@@ -59,16 +59,36 @@ Class CoordinadorVogoo
 		$usuario = R::findOne('usuario', 'nombre_usuario = ?',[$nUsuario]);
 		$idUsuario = $usuario->id;
 
+
+		include ("../vogoo/vogoo.php");
+		$vogoo = new vogoo_class("localhost","root","","tienda");
 		include("../vogoo/items.php");
-		$items = $vogoo_items->member_get_recommended_items($nUsuario);
 
-echo "<br>>>>>>>>>>>>>>>>>>items<br>";
-		if(!(empty($items))){
+		$categorias = R::getAll("SELECT categoria.id FROM categoria");
 
-			foreach ($items as $key) {
-				echo "<br>Item = $key";
-			}
+		$recomendados = array();
+
+		foreach ($categorias as $key) {
+			$cat = $key['id'];
+			$items = $vogoo_items->member_get_recommended_items($vogoo,$idUsuario,$cat);
+
+			if(!(empty($items)))
+				$recomendados = array_merge($recomendados,$items);
+
+			if(count($recomendados) > 5)
+				break;
 		}
+
+		$total = array();
+		foreach ($recomendados as $key) {
+			$p = R::findOne('producto', 'id = ?',[$key]);
+			$total[] = $p;
+		}
+
+		return $total;
+		#$items = $vogoo_items->visitor_get_recommended_items();
+
+
 
 	}
 
