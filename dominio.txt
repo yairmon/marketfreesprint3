@@ -1,0 +1,9 @@
+Dominio:
+proyectodesarrollosprint3.web44.net
+
+Base de datos: tienda
+contraseña: desarrollo20151univ
+
+http://members.000webhost.com
+login: proyectodesarrollo2@gmail.com
+contraseña: desarrollo20151univ
