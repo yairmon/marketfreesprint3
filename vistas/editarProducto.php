@@ -79,16 +79,18 @@ require'../scripts/gestionarCategorias.php';
                 <?php foreach ($categorias as $key) { ?>
                   <option value="<?php echo $key['id']; ?>"> <?php echo $key['nombre']; ?> </option>
                 <?php } ?>
-                <option value=""></option>
               </select>
             <!-- <div class="input-field col s6">
               <input id="categoria" type="text" class="validate tooltipped" name="categoria" value="?php echo $nuevaCategoria;?>" data-position="left" data-tooltip="Este campo es requerido y es numérico">
               <label for="categoria">Categoria</label>
             </div> -->
-            <div class="input-field col s6">
+          </div>
+          <div class="row">
+          <div class="input-field col s6">
               <input id="valor" type="text" class="validate tooltipped" name="valor" value="<?php echo $nuevoValor;?>" data-position="right" data-tooltip="Este campo es requerido y es numérico">
               <label for="valor">Valor Unitario</label>
-            </div>
+          </div>
+            
           </div>
           <div class="row">
             <div class="input-field col s6">
@@ -96,17 +98,17 @@ require'../scripts/gestionarCategorias.php';
               <label for="url">URL de la imagen</label>
             </div>
   
-              <div class="input-field col s6 tooltipped" data-tooltip="Eliga el estado de su producto">
+              <!-- <div class="input-field col s6 tooltipped" data-tooltip="Eliga el estado de su producto">
                 <h6>&nbsp;&nbsp;&nbsp;Estado :</h6>
-                <p>
-                  <input type="radio" id="enVenta" class="validate"  value = "en_venta" name="estado"<?php if ($nuevoEstado == "En venta"){ echo "checked"; }?>>
-                  <label for="enVenta">En venta</label>
-                </p>
-                <p>
-                  <input type="radio" id="vendido" value = "ven_dido"name="estado"<?php if ($nuevoEstado == "Vendido"){ echo "checked"; }?>>
-                  <label for="vendido">Vendido</label>
-                </p>
-              </div>
+                <p> -->
+                  <input type="hidden" id="enVenta" class="validate"  value = "en_venta" name="estado"<?php if ($nuevoEstado == "En venta"){ echo "checked"; }?>>
+                  <!-- <label for="enVenta">En venta</label> -->
+                <!-- </p>
+                <p> -->
+                  <input type="hidden" id="vendido" value = "ven_dido"name="estado"<?php if ($nuevoEstado == "Vendido"){ echo "checked"; }?>>
+                 <!--  <label for="vendido">Vendido</label> -->
+               <!--  </p>
+              </div> -->
             
           </div>
           <!-- BOTON QUE GUARDA LA EDICION DE LOS DATOS DE UN PRODUCTO -->

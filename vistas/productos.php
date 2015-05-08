@@ -94,7 +94,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
              <input type="hidden" value="<?php echo $registro['nombre']?>" name="nameProduct">
              <td>
                  <div class="input-field col s6">
-                    <input id="cantidad" type="text" class="validate tooltipped" data-tooltip = "Hay <?php echo $registro['cantidad'] ?> cantidad(es) disponible(s)" name="cantidadAComprar">
+                    <input id="cantidad" value = "1" type="text" class="validate tooltipped" data-tooltip = "Hay <?php echo $registro['cantidad'] ?> cantidad(es) disponible(s)" name="cantidadAComprar">
                     <label for="cantidad">¿Cuántas quieres?</label>
                  </div> 
              </td> 
