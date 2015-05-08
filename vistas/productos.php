@@ -117,12 +117,12 @@ if(isset($_SESSION['exitoCrearCategoria'])){
             $siguiendo = $seguidores->obtenerSeguidos($_SESSION['user']);
             if (in_array($registro['usuario_username'], $siguiendo) && $_SESSION['user'] != $registro['usuario_username']) {
               echo '<form action="../scripts/dejarDeSeguirUsuario.php?usuarioSeguidor='.$_SESSION['user'].'&usuarioSeguido='.$registro['usuario_username'].'" method="POST">
-              <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Dejar de seguir usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-navigation-cancel"></i> </button></td>
+              <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Habilitar notificaciones del usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-navigation-cancel"></i> </button></td>
               </form>';
             }
             elseif (!(in_array($registro['usuario_username'], $siguiendo))  && $_SESSION['user'] != $registro['usuario_username']) {
               echo '<form action="../scripts/seguirUsuario.php?usuarioSeguidor='.$_SESSION['user'].'&usuarioSeguido='.$registro['usuario_username'].'" method="POST">
-              <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Seguir usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-social-person-add"></i> </button></td>
+              <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Deshabilitar notificaciones del usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-social-person-add"></i> </button></td>
               </form>';
             }
             ?>
@@ -276,7 +276,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
       <div class="card login">
         <div class="card-content">
             <span class="card-title teal-text">Advertencia</span> 
-            <p>Ha ocurrido un error al tratar de seguir este usuario</p> 
+            <p>Ha ocurrido un error al tratar de habilitar las notificaciones de este usuario</p> 
         </div>
       </div>
     </div>
@@ -285,7 +285,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
       <div class="card login">
         <div class="card-content">
             <span class="card-title teal-text">&Eacute;xito</span> 
-            <p>Usted ahora esta siguiendo al este usuario</p> 
+            <p>Usted ahora est&aacute; recibiendo notificaciones de este usuario</p> 
         </div>
           <?php 
           if(isset($_GET["siguiendoUsuario"]))
@@ -305,7 +305,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
       <div class="card login">
         <div class="card-content">
             <span class="card-title teal-text">Advertencia</span> 
-            <p>Ha ocurrido un error al tratar de dejar de seguir a este usuario</p> 
+            <p>Ha ocurrido un error al tratar de deshabilitar las notificaciones de este usuario</p> 
         </div>
       </div>
     </div>
@@ -314,7 +314,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
       <div class="card login">
         <div class="card-content">
             <span class="card-title teal-text">&Eacute;xito</span> 
-            <p>Usted ahora no est&aacute; siguiendo a este usuario</p> 
+            <p>Usted ahora no est&aacute; recibiendo notificaciones de este usuario</p> 
         </div>
           <?php 
           if(isset($_GET["noSeguir"]))
