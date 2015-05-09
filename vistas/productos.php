@@ -78,7 +78,7 @@ if(isset($_SESSION['exitoCrearCategoria'])){
           <th>Imagen</th>
           <th>Estado</th>
           <th>Carrito</th>
-          <th>Seguir</th>
+          <th>Notificaciones</th>
         </tr>
       </thead>
       <!-- Tabla que muestra los productos en la vista -->
