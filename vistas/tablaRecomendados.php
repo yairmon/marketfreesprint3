@@ -27,7 +27,7 @@
       <th>Imagen</th>
       <th>Estado</th>
       <th>Carrito</th>
-      <th>Seguir</th>
+      <th>Notificaciones</th>
     </tr>
   </thead>
   <tbody>  
@@ -67,12 +67,12 @@ foreach ($recomendados as $registro){
         $siguiendo = $seguidores->obtenerSeguidos($_SESSION['user']);
         if (in_array($registro['usuario_username'], $siguiendo) && $_SESSION['user'] != $registro['usuario_username']) {
           echo '<form action="../scripts/dejarDeSeguirUsuario.php?usuarioSeguidor='.$_SESSION['user'].'&usuarioSeguido='.$registro['usuario_username'].'" method="POST">
-          <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Dejar de seguir usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-navigation-cancel"></i> </button></td>
+          <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Desabilitar notificaciones del usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-navigation-cancel"></i> </button></td>
           </form>';
         }
         elseif (!(in_array($registro['usuario_username'], $siguiendo))  && $_SESSION['user'] != $registro['usuario_username']) {
           echo '<form action="../scripts/seguirUsuario.php?usuarioSeguidor='.$_SESSION['user'].'&usuarioSeguido='.$registro['usuario_username'].'" method="POST">
-          <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Seguir usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-social-person-add"></i> </button></td>
+          <button class="btn teal darken-2 waves-effect waves-light validate tooltipped" data-tooltip = "Habilitar notificaciones del usuario"  data-position="right" type="submit" name="agregarAlCarrito"><i class="mdi-social-person-add"></i> </button></td>
           </form></tr>';
         }
       }
